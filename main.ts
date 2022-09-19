@@ -25,6 +25,12 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     lMemory.push(sMemory2)
     petCrab.sayText(sMemory2, 5000, false)
 })
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    petCrab.sayText(lMemory[0], 1000, false)
+    pause(1000)
+    lMemory.shift()
+    petCrab.sayText("..oh", 2000, false)
+})
 let sMemory2 = ""
 let sMemory1 = ""
 let verbalize = ""
@@ -153,6 +159,10 @@ scene.setBackgroundImage(img`
     6cccccccccccccc66666ccccccccccccccccccc6666cccc6644bccccccccccccc8666666666666f66666ffffffff666666666666666666ccccccccccccccccccccccccccccccccccccccccccccccccc8
     6cccccccccccccc66666ccccccccccccccccccc666ccccc6666ccccccccccccccf666666666666ff6666ffffffff6666666666666666666ccccccccccccccc6cccccccccccccccccccccccccccccccc8
     `)
+game.splash("Up= Get New Words")
+game.splash("A= Save words, Down= Forget a word")
+game.splash("B= Recall words")
+game.splash("Left/Right= Select that word")
 petCrab = sprites.create(img`
     ...................cc...
     ...............cccc63c..
@@ -173,16 +183,25 @@ petCrab = sprites.create(img`
     `, SpriteKind.Pet)
 petCrab.setPosition(120, 72)
 globalDict = [
-"Crab",
-"Pearl",
-"Hi",
-"Bye",
-"Blue",
-"White",
-"Shark",
-"Ocean",
-"Hide",
-"Eat",
-"Fish"
+"Crab ",
+"Pearl ",
+"Hi ",
+"Bye ",
+"Blue ",
+"White ",
+"Shark ",
+"Ocean ",
+"Hide ",
+"Eat ",
+"Fish ",
+"Sun ",
+"Star ",
+"Moon ",
+"Green ",
+"Yellow ",
+"Sea ",
+"Shell ",
+"Snip ",
+"Snap "
 ]
 memoryCycle()
